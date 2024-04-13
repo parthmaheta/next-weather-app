@@ -2,32 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+/* Navbar styles */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling of the entire document */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.container {
+  height: 85vh; 
+  overflow-y: auto; 
+  overflow-x: auto; 
+  padding: 5px; 
+  box-sizing: border-box; 
+  min-width: 100%;
 }
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;    
+  padding: 10px 20px;
+  border-radius: 20px;
+  }
+  .box-shadow-custom{
+    box-shadow: 5px 5px 10px #b7c6d4, -5px -5px 10px #ffffff;
+
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  } 
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background-color: #d7e1eb;
+    box-shadow: 5px 5px 10px #b7c6d4, -5px -5px 10px #ffffff;
+  }
+  
+  .action-btn {
+    background-color: #d7e1eb;
+    color: #4b5563;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #b7c6d4, -5px -5px 10px #ffffff;
+  }
+  
+  .bg-morning {
+    background-color: #FFF4E3; 
+  }
+  
+  .bg-afternoon {
+    background-color: #C9E6FF; 
+  }
+  
+  .bg-evening {
+    background-color: #FFD6A5; 
+  }
+  
+  .bg-night {
+    background-color: #333333; 
+  }
+
+  .text-morning-text {
+    color: #000; 
+  }
+  
+  .text-afternoon-text {
+    color: #333; 
+  }
+  
+  .text-evening-text {
+    color: #666; 
+  }
+  
+  .text-night-text {
+    color: #999; 
+  }

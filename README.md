@@ -1,6 +1,49 @@
+# Dynamic Weather App
+ High Quality Production level frontend application for weather app uses next js
+-Follows best practices in terms of performance, readability, maintainability, and extensibility of the project
+
+
+
+## Tech
+- Next.js
+- Tailwind
+- Tanstack Query - for API caching and server state
+- Zustand - for client side caching
+- Typescript - for static typing and compile time warning
+
+## Features
+- Fetches cities from api with infinite scroll 
+- Fetches weather and forecast data from an API.
+- Displays weather information such as temperature, humidity, pressure, etc.
+- Allows users to toggle between Celsius and Kelvin temperature units.
+- Dynamic background based on time of the day for forecast data
+- City Table Supports Sorting And Searching
+- Supports Geo Location Feature
+- User Can Save Favorites Location
+- Supports dark and light theme
+- Api data is cached locally to prevent redundunt api call
+- Application is fully responsive for different device screens such as mobile,table,desktop
+- For layout, it uses neumorphic and minimalist design
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+### How TO Run
+
+Clone the Repository:
+```bash
+    git clone <repository-url>
+```
+Navigate to the Project Directory: 
+```bash
+cd <project-directory>
+```
+Install Dependencies
+```bash
+npm install
+```
 
 First, run the development server:
 

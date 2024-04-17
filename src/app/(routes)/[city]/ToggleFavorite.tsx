@@ -1,9 +1,9 @@
-import useFavoritesStore from "@/app/_utils/store";
+import useFavoritesStore, { Favorite } from "@/app/_utils/store";
 import { useEffect, useMemo, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-export function FavoriteButton({ city, lat, long }) {
+export function FavoriteButton({ city, lat, long }:Favorite) {
     const { favorites, toggleFavorite } = useFavoritesStore();     
-    const isFavorite = useMemo(() =>favorites.some(favorite => favorite.city === city), [ city, lat, long,favorites ])
+    const isFavorite = useMemo(() =>favorites.some(favorite => favorite.city === city), [ city,favorites ])
     
   
     return (

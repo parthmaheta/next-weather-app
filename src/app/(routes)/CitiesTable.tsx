@@ -1,5 +1,5 @@
 import React, {  useEffect, useMemo, useState } from "react";
-import { fetchAllCities, Record } from "../_utils/api";
+import { fetchAllCities, Fields, Record } from "../_utils/api";
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
 import Table from "./Table";
 import { useInView } from "react-intersection-observer";
@@ -12,7 +12,7 @@ export type filterType={
 
 function CitiesTable({}: Props) {
   const { ref, inView, entry } = useInView({});
-  const [rows,setRows] = useState([]);
+  const [rows,setRows] = useState<Fields[]>([]);
   const [columnFilters, setColumnFilters] = useState<filterType[]>([]);
   const { data, error, isLoading,fetchNextPage,isFetchingNextPage } = useInfiniteQuery({
     initialPageParam:0,
@@ -27,7 +27,7 @@ function CitiesTable({}: Props) {
   const queryClient=useQueryClient();
  
  useEffect(() => {
-  let rowFields=[];
+  let rowFields:Fields[]=[];
     data?.pages.forEach(page=>page.records.forEach(record=>{   
     
     rowFields.push(record.fields)}))      
@@ -38,7 +38,7 @@ function CitiesTable({}: Props) {
    if(inView&&!isFetchingNextPage&&columnFilters.length===0)
     fetchNextPage()
 
-  },[inView,columnFilters.length])
+  },[inView,columnFilters.length,fetchNextPage,isFetchingNextPage])
 
 
   

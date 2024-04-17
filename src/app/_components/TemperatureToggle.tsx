@@ -16,7 +16,7 @@ export const TemperatureToggle = () => {
         className={`relative block w-12 h-6 rounded-full  cursor-pointer transition-colors duration-300 ${isKelvin ? "bg-primary-accent" : "bg-gray-300 dark:bg-gray-700"}`}
       >
         <span
-          className={`absolute left-0 top-0 w-6 h-6 rounded-full bg-white dark:bg-gray-300 shadow-md transform transition-transform duration-300 ${isKelvin ? "translate-x-full" : "translate-x-0"}`} />
+          className={`absolute left-0 top-0 w-6 h-6 rounded-full bg-white dark:bg-gray-300 shadow-md transform transition-transform duration-300 ${isKelvin ? "translate-x-full" : "translate-x-0"}`}></span>
       </label>
 
       {/* Icons */}

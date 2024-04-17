@@ -32,16 +32,16 @@ export default function Page({ params }: { params: { city: string } }) {
   const { isKelvin} = useTemperatureStore((state) => state);
   const lat = useMemo(() => {
     return searchParams.get("lat");
-  }, [searchParams.get("lat")]);
+  }, [searchParams]);
 
   const long = useMemo(() => {
     return searchParams.get("long");
-  }, [searchParams.get("long")]);
+  }, [searchParams]);
 
    const { data, error, isLoading } = useQuery({
     queryKey:["weather",lat,long],
     queryFn:()=>{
-      return fetchWeatherData(lat,long)
+      return fetchWeatherData(lat as unknown as number,long as unknown as number)
     }
 
    })
@@ -68,8 +68,8 @@ export default function Page({ params }: { params: { city: string } }) {
             <div className="font-semibold text-xl">Current Weather</div>
             <FavoriteButton
               city={decodeURIComponent(params.city) || ""}
-              lat={lat}
-              long={long}
+              lat={lat as string}
+              long={long as string}
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -102,8 +102,9 @@ export default function Page({ params }: { params: { city: string } }) {
                 <div className="flex items-center">
                   <p className="">Description: {data.weather[0].description}</p>
                 </div>
-                <img
-                  className="w-25 h-25"
+                <Image
+                  width={100}
+                  height={100}
                   src={getIconUrl(data.weather[0].icon)}
                   alt="icon"
                 />
@@ -114,8 +115,9 @@ export default function Page({ params }: { params: { city: string } }) {
                
                   <div className="flex justify-center items-center gap-4">
                     {data.sys.country && (
-                      <img
-                        className="w-12 h-12"
+                      <Image
+                        width={48}
+                        height={48}
                         src={`https://flagicons.lipis.dev/flags/4x3/${data.sys.country.toLowerCase()}.svg`}
                         alt="country flag"
                       />
@@ -199,7 +201,7 @@ export default function Page({ params }: { params: { city: string } }) {
         </>
       )}
 
-      <ForecastWeather lat={lat} long={long} />
+      <ForecastWeather lat={lat as unknown as number} long={long as unknown as number} />
     </div>
   );
 }

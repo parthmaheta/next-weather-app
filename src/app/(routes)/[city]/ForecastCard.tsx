@@ -1,6 +1,7 @@
 import { getIconUrl, WeatherEntry } from '@/app/_utils/api'
 import { useTemperatureStore } from '@/app/_utils/store'
 import { convertTemp } from '@/app/_utils/util'
+import Image from 'next/image'
 import React, { useMemo } from 'react'
 import { IoMdRainy } from 'react-icons/io'
 import {  WiThermometer } from 'react-icons/wi'
@@ -36,8 +37,10 @@ const ForecastCard = ({data}: Props) => {
 
   return (
     <td className={`p-4 rounded-lg  ${bgClass} ${textColor} hover:opacity-70 -z-1`}>
-         <img
-        className="w-12 h-12 text-center ml-auto"
+         <Image
+         width={48}
+         height={48}
+        className="text-center ml-auto"
         src={getIconUrl(data.weather[0].icon)}
         alt="icon"
       />

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const Toaster = ({ message,callBack }) => {
+type Props={
+  message:string;
+  callBack:()=>void;
+}
+const Toaster = ({ message,callBack }:Props) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -12,8 +16,7 @@ const Toaster = ({ message,callBack }) => {
       }, 3000); // Change the duration as needed
       return () => clearTimeout(timer);
     }
-    console.log('worked');
-  }, [message]);
+  }, [message,callBack]);
   
 
   return (

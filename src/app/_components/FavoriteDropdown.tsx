@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 import { FaRegHeart, FaTimes } from "react-icons/fa";
@@ -9,13 +10,13 @@ export function FavoriteDropdown() {
 
   const [isOpen, setIsOpen] = useState(false);
   const { favorites, initFavorites, removeFavorite } = useFavoritesStore();
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const path = usePathname();
 
 
   //click outside popup will close popup
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  const handleClickOutside = (event:MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };

@@ -249,7 +249,7 @@ interface SearchFields {
 
 export async function fetchCity(query = ""):Promise<SearchCityResponse> {
   const response = await fetch(
-    `https://public.opendatasoft.com/api/records/1.0/search/?dataset=geonames-all-cities-with-a-population-1000&rows=5&q=${query}`
+    `https://public.opendatasoft.com/api/records/1.0/search/?dataset=geonames-all-cities-with-a-population-1000&rows=8&q=${query}`
   );
 
   return await response.json(); 

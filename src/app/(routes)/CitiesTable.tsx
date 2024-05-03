@@ -3,6 +3,7 @@ import { fetchAllCities, Fields, Record } from "../_utils/api";
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
 import Table from "./Table";
 import { useInView } from "react-intersection-observer";
+import SearchCity from "./SearchCity";
 
 type Props = {};
 export type filterType={
@@ -23,8 +24,6 @@ function CitiesTable({}: Props) {
     getNextPageParam:(lastPage,allPages,lastPageParam)=>lastPageParam+1,
     
   });
-
-  const queryClient=useQueryClient();
  
  useEffect(() => {
   let rowFields:Fields[]=[];
@@ -45,7 +44,9 @@ function CitiesTable({}: Props) {
   
         
   return (
-    <>
+    <>{
+      // <SearchCity/>
+    }
       {isLoading && <h1 className="text-center text-lg">Wait We ARe Fetching</h1>}
       {error && <h1 className="text-red-600 text-center text-lg">Something Went wrong</h1>}
       {data&&rows.length>0 && <Table data={rows} ref={ref} columnFilters={columnFilters} setColumnFilters={setColumnFilters} />}

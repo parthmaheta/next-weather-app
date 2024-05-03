@@ -2,30 +2,30 @@
 import React, { useEffect, useState } from 'react';
 import { FaMoon } from "react-icons/fa";
 import { GoSun } from "react-icons/go";
+import { useThemeStore } from '../_utils/store';
 
 export const ThemeToggleButton = () => {
 
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const { isDarkTheme, toggleTheme,init } = useThemeStore();
+
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDarkTheme(true);
+    init();
+    if (localStorage.getItem("theme") === "dark") {
       document.documentElement.classList.add("dark");
     } else {
-      setIsDarkTheme(false);
       document.documentElement.classList.remove("dark");
     }
   }, []);
 
-  const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
+  const changeTheme = () => {
     localStorage.setItem("theme", isDarkTheme ? "light" : "dark");
+    toggleTheme()
     document.documentElement.classList.toggle("dark");
   };
   return (
     <button
       title="Toggle Theme"
-      onClick={toggleTheme}
+      onClick={changeTheme}
       className="p-4 rounded-full bg-gray-800 text-white dark:bg-primary-dark-light dark:text-primary-accent shadow-lg z-10 hover:opacity-60"
     >
       {isDarkTheme ? <GoSun /> : <FaMoon />}

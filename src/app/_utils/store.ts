@@ -77,3 +77,21 @@ export const useTemperatureStore: UseBoundStore<StoreApi<TempStore>> = create(
     },
   })
 );
+
+type ThemeStore={
+  isDarkTheme:boolean;
+  init:()=>void;
+  toggleTheme:()=>void;
+}
+export const useThemeStore: UseBoundStore<StoreApi<ThemeStore>> = create((set) => ({
+  isDarkTheme:  false,
+  init:()=>{
+    const theme = localStorage.getItem("theme") ;
+    set({ isDarkTheme: theme==="dark"?true:false });
+    if(!theme)
+      localStorage.setItem("theme","light") ;
+
+  },
+  toggleTheme: () => set((state) => {return { isDarkTheme: !state.isDarkTheme }}),
+}));
+

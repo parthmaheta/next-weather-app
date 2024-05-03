@@ -50,7 +50,7 @@ export function FavoriteDropdown() {
       </button>
       {isOpen && (
 
-        <div ref={dropdownRef} className="absolute right-0 mt-2 p-2 w-64 bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-y-auto max-h-[40vh]">
+        <div ref={dropdownRef} className="absolute right-0 mt-2 p-2 w-64 bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-y-auto max-h-[40vh] z-[1000]">
           <div className='mb-4 text-lg text-center font-semibold'>Favorite Locations</div>
           {favorites.length > 0 ? favorites.map(({ city, lat, long }) => (
             <div key={city + lat + long} className='flex items-center justify-between p-2 my-2 hover:bg-gray-100 dark:hover:bg-gray-700'>

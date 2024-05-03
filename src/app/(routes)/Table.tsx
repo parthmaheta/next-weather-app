@@ -10,11 +10,8 @@ import { Fields,WeatherResponse } from "../_utils/api";
 import { FaSort, FaSortDown, FaSortUp } from "react-icons/fa";
 import {
   Dispatch,
-  ForwardedRef,
   forwardRef,
-  FunctionComponent,
   LegacyRef,
-  ReactNode,
   SetStateAction,
   useMemo,
   useState,

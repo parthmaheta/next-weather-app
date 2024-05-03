@@ -44,9 +44,7 @@ function CitiesTable({}: Props) {
   
         
   return (
-    <>{
-      // <SearchCity/>
-    }
+    <>
       {isLoading && <h1 className="text-center text-lg">Wait We ARe Fetching</h1>}
       {error && <h1 className="text-red-600 text-center text-lg">Something Went wrong</h1>}
       {data&&rows.length>0 && <Table data={rows} ref={ref} columnFilters={columnFilters} setColumnFilters={setColumnFilters} />}

@@ -61,7 +61,7 @@ const SearchCity = (props: Props) => {
 
 ;
 
-  const formatResult = (item) => {
+  const formatResult = (item:SearchResult) => {
     return (   
       
   
@@ -83,7 +83,7 @@ const SearchCity = (props: Props) => {
         formatResult={formatResult}        
         showNoResults={true}
         styling={{backgroundColor:isDarkTheme?"#1F1D1D":"#f0f4f8",color:isDarkTheme?"#F97F29":"black",}}
-        className="fixed top-[21vh] sm:top-[16vh] z-[1000] shadow-lg"   
+        className="top-[21vh] sm:top-[16vh] shadow-lg z-[99]"   
       />
   );
 };

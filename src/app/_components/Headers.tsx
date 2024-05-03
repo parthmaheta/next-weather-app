@@ -13,7 +13,7 @@ export const Header = () => {
     
     
   return (
-    <header className="navbar sm:flex-row dark:border-primary-accent box-shadow-custom dark:shadow-none fixed top-0 w-full m-2 bg-primary dark:bg-primary-dark">
+    <header className="navbar sm:flex-row dark:border-primary-accent box-shadow-custom dark:shadow-none fixed top-0 w-full m-2 bg-primary dark:bg-primary-dark z-[1000]">
       <div className="navbar-left">
         <Link href={"/"}>
         <Image src={logo}  alt="Logo" className='hover:opacity-70' />
